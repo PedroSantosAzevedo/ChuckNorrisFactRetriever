@@ -23,7 +23,7 @@ class FeedViewController: UIViewController,ShareDelegate{
     }
     
     var safeArea:UILayoutGuide!
-    
+    //used to set correct category
     var categoryIndex = 0
     
     lazy var searchBar:UISearchBar = {
@@ -33,8 +33,8 @@ class FeedViewController: UIViewController,ShareDelegate{
         searchBar.delegate = self
         searchBar.barTintColor = .clear
         searchBar.barStyle = .default
-        searchBar.isTranslucent = tru
-        searchBar.placeholder = "Search for fact"
+        searchBar.isTranslucent = true
+        searchBar.placeholder = "Search for facts"
         searchBar.showsCancelButton = true
         return searchBar
     }()
@@ -58,7 +58,7 @@ class FeedViewController: UIViewController,ShareDelegate{
         button.addTarget(self, action: #selector(popDropDownTable), for: .touchDown)
         button.setTitle(">", for: .normal)
         button.sizeToFit()
-        button.titleLabel?.textColor = .red
+//        button.titleLabel?.textColor = .white
         
         return button
     }()
@@ -82,12 +82,12 @@ class FeedViewController: UIViewController,ShareDelegate{
     lazy var addFactButton:UIButton = {
         let button = UIButton()
         view.addSubview(button)
-        button.backgroundColor = .red
+        button.backgroundColor = .darkGray
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(addFact), for: .touchDown)
         button.setTitle("Add random fact", for: .normal)
         button.sizeToFit()
-        button.titleLabel?.textColor = .red
+        
         
         return button
     }()
@@ -129,7 +129,7 @@ class FeedViewController: UIViewController,ShareDelegate{
     
     private func showSearchAlert() {
         //Create the AlertController
-        let myAlertController: UIAlertController = UIAlertController(title: "Chuck says:", message: "No resuld could be found", preferredStyle: .alert)
+        let myAlertController: UIAlertController = UIAlertController(title: "Chuck says:", message: "No result could be found", preferredStyle: .alert)
 
         //Create and add the Cancel action
         let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in
@@ -160,12 +160,12 @@ class FeedViewController: UIViewController,ShareDelegate{
         addFactButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant:  0).isActive = true
         addFactButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0).isActive = true
         addFactButton.widthAnchor.constraint(equalToConstant: view.frame.width * 4/5).isActive = true
-        addFactButton.heightAnchor.constraint(equalToConstant: view.frame.height/10).isActive = true
+        addFactButton.heightAnchor.constraint(equalToConstant: view.frame.height/15).isActive = true
         
         dropDownButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant:  0).isActive = true
         dropDownButton.leftAnchor.constraint(equalTo: addFactButton.rightAnchor, constant: 0).isActive = true
         dropDownButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
-        dropDownButton.heightAnchor.constraint(equalToConstant: view.frame.height/10).isActive = true
+        dropDownButton.heightAnchor.constraint(equalToConstant: view.frame.height/15).isActive = true
         
         searchBar.topAnchor.constraint(equalTo: safeArea.topAnchor).isActive = true
         searchBar.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0).isActive = true
