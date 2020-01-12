@@ -22,11 +22,9 @@ class FactTableViewCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         addSubview(label)
-        let inset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
-        label.frame.inset(by: inset)
         label.textColor = .white
         label.backgroundColor = .red
-        
+        label.layer.cornerRadius = 8
         return label
         
     }()
@@ -55,8 +53,8 @@ class FactTableViewCell: UITableViewCell {
         addSubview(button)
         
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .red
-        let buttonImage = UIImage(named: "share")
+        button.backgroundColor = .clear
+        let buttonImage = UIImage(imageLiteralResourceName: "share")
         button.imageView?.contentMode = .center
         button.setImage(buttonImage, for: .normal)
         button.addTarget(self, action: #selector(shareFact), for: .touchDown)
@@ -75,8 +73,8 @@ class FactTableViewCell: UITableViewCell {
         categoryLabel.widthAnchor.constraint(equalToConstant: 200).isActive = true
         
         //share button
-        shareButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        shareButton.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        shareButton.heightAnchor.constraint(equalToConstant: 35).isActive = true
+        shareButton.widthAnchor.constraint(equalToConstant: 35).isActive = true
         shareButton.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -shareButton.frame.height * 1.2).isActive = true
         shareButton.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor,constant: -10).isActive = true
         

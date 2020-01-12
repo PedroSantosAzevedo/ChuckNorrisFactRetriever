@@ -17,7 +17,7 @@ class FeedViewController: UIViewController,ShareDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .lightGray
         safeArea = view.layoutMarginsGuide
         setContraints()
     }
@@ -33,7 +33,7 @@ class FeedViewController: UIViewController,ShareDelegate{
         searchBar.delegate = self
         searchBar.barTintColor = .clear
         searchBar.barStyle = .default
-        searchBar.isTranslucent = true
+        searchBar.isTranslucent = tru
         searchBar.placeholder = "Search for fact"
         searchBar.showsCancelButton = true
         return searchBar
@@ -73,6 +73,7 @@ class FeedViewController: UIViewController,ShareDelegate{
         tableView.register(FactTableViewCell.self, forCellReuseIdentifier: "Cell")
         tableView.separatorStyle = .none
         tableView.estimatedRowHeight = 200
+        tableView.backgroundColor = .lightGray
         tableView.rowHeight = UITableView.automaticDimension
         //        tableView.reloadData()
         return tableView
