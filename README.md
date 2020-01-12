@@ -6,8 +6,7 @@ An app used to fetch chuck norris' facts from it's api.
 2. O Projeto
 3. O Design
 4. Testes
-5. Dependências
-6. Vulnerabilidades
+
 
 Arquitetura: MVVM
 
