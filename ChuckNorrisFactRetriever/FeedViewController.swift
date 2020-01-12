@@ -126,6 +126,19 @@ class FeedViewController: UIViewController,ShareDelegate{
         self.present(activityControl, animated: true, completion: nil)
     }
     
+    private func showSearchAlert() {
+        //Create the AlertController
+        let myAlertController: UIAlertController = UIAlertController(title: "Chuck says:", message: "No resuld could be found", preferredStyle: .alert)
+
+        //Create and add the Cancel action
+        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in
+            //Do some stuff
+        }
+        myAlertController.addAction(cancelAction)
+        //Present the AlertController
+        self.present(myAlertController, animated: true, completion: nil)
+    }
+    
     //retrieve available categories from api
     private func getCategories(){
         let anonymousFunc = {(fetchedData:[String]) in
@@ -266,8 +279,8 @@ extension FeedViewController: UISearchBarDelegate{
                 }
                 self.tableView.reloadData()
                 }else{
-                    //TODO: - add pop up
-                    debugPrint("could not retrieve any result")
+                    
+                    self.showSearchAlert()
                 }
             }
         }
